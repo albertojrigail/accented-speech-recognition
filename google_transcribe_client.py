@@ -41,7 +41,7 @@ class GoogleTranscribeClient:
 # Example use case of transcribing a recording using the client.
 def test_google_transcribe():
     custom_filesystem = CustomFilesystem()
-    recording_path = custom_filesystem.mp3_recording_path("english1")
+    recording_path = custom_filesystem.mp3_recording_path("spanish1")
     print(recording_path)
 
     transcribe_client = GoogleTranscribeClient()

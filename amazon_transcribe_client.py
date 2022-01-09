@@ -81,16 +81,15 @@ class AmazonTranscribeClient:
             jobs = self._transcription_jobs()
 
 # Example use case of transcribing a recording using the client.        
-def test_amazon_transcribe():
-    bucket_client = AmazonBucketClient()
-    recording_uri = bucket_client.mp3_recording_path("spanish2")
-    print(recording_uri)
-    
+def test_amazon_transcribe(recording_name):
     transcribe_client = AmazonTranscribeClient()
+    bucket_client = AmazonBucketClient()
+    recording_uri = bucket_client.mp3_recording_path(recording_name)
+    print(recording_uri)
     transcription = transcribe_client.transcribe_recording(recording_uri)
     print(transcription)
 
 if __name__ == '__main__':
-    client = AmazonTranscribeClient()
-    client.delete_transcription_jobs()
-    test_amazon_transcribe()
+    #client = AmazonTranscribeClient()
+    #client.delete_transcription_jobs()
+    test_amazon_transcribe("spanish1")
